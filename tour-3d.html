@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="富景工程 — Block 1-38 Flat D／E 示範 3D 單位預覽。可拖動旋轉、滾輪縮放。示範預覽，非精確比例。" />
+  <title>3D 單位預覽｜富景工程有限公司</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="demo-banner" role="note">
+    示範網站 · 資料屬範例，可稍後替換
+  </div>
+
+  <header class="site-header">
+    <div class="nav-inner">
+      <a href="index.html" class="logo" aria-label="富景工程有限公司首頁">
+        <span class="logo-mark" aria-hidden="true">景</span>
+        <span>富景工程有限公司</span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="開啟選單"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        id="menu-toggle"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-links" id="primary-nav" aria-label="主要導覽">
+        <a href="index.html#services">服務範圍</a>
+        <a href="index.html#process">工程流程</a>
+        <a href="index.html#projects">工程案例</a>
+        <a href="tour-3d.html" aria-current="page">3D 預覽</a>
+        <a href="index.html#about">關於我們</a>
+        <a href="index.html#reviews">客戶評價</a>
+        <a href="index.html#contact">聯絡我們</a>
+        <div class="nav-cta">
+          <a class="btn btn-primary" href="index.html#contact">免費報價</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="tour-intro">
+      <div class="container">
+        <p class="tour-back"><a href="index.html">← 返回主頁</a></p>
+        <p class="section-label">BLOCK 1-38 · FLAT D／E</p>
+        <h1>3D 單位預覽</h1>
+        <p class="tour-lead">
+          依照平面圖簡化而成的立體空間，方便預覽客廳、廚房、主人房與睡房的相對位置，以及暖色現代裝修的氣氛。
+        </p>
+        <p class="tour-note">示範預覽，非精確比例。牆身與傢俬均為示意，並非實地測繪。</p>
+        <p class="tour-help">拖動旋轉 · 滾輪縮放。手機請單指轉動、雙指縮放；右鍵可平移，WASD 或方向鍵可在單位內移動。點選房間，鏡頭會移到該處。</p>
+      </div>
+    </section>
+
+    <section class="tour-viewer" aria-label="立體預覽">
+      <div class="container">
+        <div
+          id="tour-stage"
+          class="tour-stage"
+          role="application"
+          aria-label="Block 1-38 Flat D／E 立體示意。拖動旋轉，滾輪縮放。"
+        >
+          <div class="tour-badge">
+            <strong>Block 1-38 · Flat D／E</strong>
+            <span>示範預覽，非精確比例</span>
+          </div>
+          <p class="tour-tip" id="tour-tip">拖動旋轉 · 滾輪縮放</p>
+          <div class="tour-hotspots" role="toolbar" aria-label="房間視角">
+            <button type="button" data-room="overview">全貌</button>
+            <button type="button" data-room="living">客廳</button>
+            <button type="button" data-room="kitchen">廚房</button>
+            <button type="button" data-room="master">主人房</button>
+            <button type="button" data-room="bed">睡房</button>
+          </div>
+          <div class="tour-loading" id="tour-loading">正在準備立體預覽…</div>
+        </div>
+        <noscript>
+          <p class="tour-note">請啟用 JavaScript 以查看 3D 預覽。</p>
+        </noscript>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-mark" aria-hidden="true">景</span>
+            <span>富景工程有限公司</span>
+          </div>
+          <p>專業住宅・商舖裝修示範網站。資料屬範例，可稍後替換為真實公司資訊。</p>
+        </div>
+        <nav class="footer-links" aria-label="頁尾連結">
+          <a href="index.html#services">服務範圍</a>
+          <a href="index.html#projects">工程案例</a>
+          <a href="tour-3d.html" aria-current="page">3D 預覽</a>
+          <a href="index.html#contact">聯絡我們</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        © <span id="year"></span> 富景工程有限公司 Demo
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script type="module" src="tour-3d.js"></script>
+  <script>
+    window.setTimeout(function () {
+      var el = document.getElementById("tour-loading");
+      if (!el || el.classList.contains("is-hidden") || window.__tourBooted) return;
+      el.textContent = "未能載入 3D 預覽。請檢查網絡連線後再試。";
+    }, 8000);
+  </script>
+</body>
+</html>
