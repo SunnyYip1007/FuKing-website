@@ -20,13 +20,15 @@ python3 -m http.server 8080
 # 然後瀏覽 http://localhost:8080
 ```
 
-無需安裝 npm、無需編譯。純 HTML + CSS + 少量 JavaScript。
+無需安裝 npm、無需編譯。純 HTML + CSS + 少量 JavaScript。3D 預覽頁會從 CDN 載入 Three.js，需要網絡。
 
 ## 檔案結構
 
 ```
 /
 ├── index.html    # 主頁（單頁含所有區塊）
+├── tour-3d.html  # Block 1-38 Flat D／E 立體預覽
+├── tour-3d.js    # Three.js 場景（CDN，無建置步驟）
 ├── styles.css    # 樣式
 ├── script.js     # 手機選單、表單示範行為
 ├── README.md     # 本說明
@@ -46,6 +48,18 @@ python3 -m http.server 8080
 | 客戶評價 | 三則示範評價 |
 | 聯絡我們 | 表單 + 電話／WhatsApp／電郵／服務範圍 |
 | 頁尾 | 版權「富景工程有限公司 Demo」 |
+| 3D 單位預覽 | `tour-3d.html`，Block 1-38 Flat D／E 示範立體空間 |
+
+## 3D 單位預覽
+
+`tour-3d.html` 用 Three.js（jsDelivr CDN，無需 npm）按平面圖做了一個**簡化**室內模型：左側開放式客飯廳（弧形沙發）、L 形廚房、走廊與兩間浴室、右上方主人房、右下方兩間睡房。
+
+- 拖動旋轉、滾輪或雙指縮放、右鍵平移
+- WASD／方向鍵在單位內移動
+- 點選「客廳／廚房／主人房／睡房」會把鏡頭移到該房間
+- 頁面注明「示範預覽，非精確比例」，不是測繪圖則
+
+開啟方式與主頁相同，瀏覽 `tour-3d.html`。離線或被擋 CDN 時，場景無法載入。
 
 ## 稍後建議替換的內容
 
