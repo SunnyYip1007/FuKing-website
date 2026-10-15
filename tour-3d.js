@@ -43,12 +43,12 @@ const PRESETS = {
     target: [14.65, 0.82, 1.75],
   },
   bed: {
-    position: [9.35, 1.58, 8.05],
-    target: [10.55, 0.72, 6.75],
+    position: [9.2, 1.58, 5.9],
+    target: [10.55, 0.85, 7.35],
   },
   bed3: {
-    position: [15.5, 1.58, 8.05],
-    target: [14.7, 0.72, 6.75],
+    position: [13.85, 1.58, 5.95],
+    target: [14.85, 0.85, 7.35],
   },
   bath: {
     position: [9.7, 1.58, 3.85],
@@ -227,6 +227,7 @@ function main() {
       roughness: 0.46,
       metalness: 0.04,
       envMapIntensity: 0.4,
+      side: THREE.DoubleSide,
     }),
     woodFloor: new THREE.MeshStandardMaterial({
       color: 0xffffff,
@@ -872,10 +873,10 @@ function main() {
   }
 
   function addLights() {
-    const hemi = new THREE.HemisphereLight(0xfff6ea, 0xc9bfb0, 1.35);
+    const hemi = new THREE.HemisphereLight(0xfff6ea, 0xc9bfb0, 2.05);
     scene.add(hemi);
 
-    const sun = new THREE.DirectionalLight(0xfff1dc, 2.6);
+    const sun = new THREE.DirectionalLight(0xfff1dc, 2.35);
     sun.position.set(-2.5, 14, 12);
     sun.target.position.set(8, 0, 4.5);
     sun.castShadow = true;
@@ -892,18 +893,18 @@ function main() {
     scene.add(sun);
     scene.add(sun.target);
 
-    const fill = new THREE.DirectionalLight(0xf3efe6, 0.55);
-    fill.position.set(18, 8, -2);
+    const fill = new THREE.DirectionalLight(0xfff4e8, 0.9);
+    fill.position.set(8, 16, 4);
     scene.add(fill);
 
     const bulbs = [
-      [3.4, 6.3, 18, 7.5],
-      [6.85, 4.5, 14, 6],
-      [3.1, 1.6, 12, 5],
-      [14.6, 2.1, 14, 6],
-      [10.4, 7.0, 12, 5.5],
-      [14.6, 7.0, 12, 5.5],
-      [10.3, 3.6, 10, 5],
+      [3.4, 6.3, 16, 7.5],
+      [6.85, 4.5, 14, 6.5],
+      [3.1, 1.7, 34, 6],
+      [14.6, 2.2, 32, 6.5],
+      [10.5, 7.1, 18, 6],
+      [14.7, 7.1, 18, 6],
+      [10.3, 3.6, 16, 6],
     ];
     bulbs.forEach(([x, z, intensity, dist]) => {
       const light = new THREE.PointLight(0xfff0d4, intensity, dist, 2);
